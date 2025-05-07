@@ -2,6 +2,7 @@ import chalk from 'chalk'
 
 import { Webhook } from './Webhook'
 import { Ntfy } from './Ntfy'
+import { DiscordNotification } from './Discord'
 import { loadConfig } from './Load'
 
 export async function log(isMobile: boolean | 'main', title: string, message: string, type: 'log' | 'warn' | 'error' = 'log', color?: keyof typeof chalk) {
@@ -44,6 +45,7 @@ export async function log(isMobile: boolean | 'main', title: string, message: st
     // Check if the current log type and message meet the NTFY conditions
     if (type in ntfyConditions && ntfyConditions[type as keyof typeof ntfyConditions].some(condition => condition))
         await Ntfy(cleanStr, type)
+        await DiscordNotification(cleanStr,type)
     
     // Formatted string with chalk for terminal logging
     const str = `[${currentTime}] [PID: ${process.pid}] [${type.toUpperCase()}] ${chalkedPlatform} [${title}] ${message}`

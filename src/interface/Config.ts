@@ -1,4 +1,5 @@
 export interface Config {
+    [x: string]: any;
     baseURL: string;
     sessionPath: string;
     headless: boolean;
@@ -45,6 +46,11 @@ export interface ConfigNtfy {
     url: string;
     topic: string;
     authToken?: string; // Optional authentication token
+}
+
+export interface ConfigDiscord {
+    enabled: boolean;
+    webhook: string;
 }
 
 export interface ConfigProxy {

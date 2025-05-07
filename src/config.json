@@ -46,8 +46,12 @@
     },
     "ntfy": {
         "enabled": false,
-        "url": "",  
-        "topic": "", 
-        "authToken": "" 
+        "url": "",
+        "topic": "",
+        "authToken": ""
+    },
+    "discord": {
+        "enabled": false,
+        "webhook": ""
     }
 }
