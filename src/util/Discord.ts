@@ -4,12 +4,12 @@ import axios from 'axios'
 const NOTIFICATION_TYPES = {
   error: { emoji: '❌' },
   warn: { emoji: '🚨' },
-  log: { emoji: '✅' }
+  log: { emoji: '🏅' }
 }
 
 export async function DiscordNotification(message: string, type: keyof typeof NOTIFICATION_TYPES = 'log'): Promise<void> {
   const config = loadConfig().discord
-  if (!config?.enabled || !config.webhook) return
+  if (!config?.enabled || !config.url) return
 
   try {
     const { emoji } = NOTIFICATION_TYPES[type]
@@ -17,7 +17,7 @@ export async function DiscordNotification(message: string, type: keyof typeof NO
       "Content-Type": "application/json"
     }
 
-    const response = await axios.post(`${config.webhook}`, {
+    const response = await axios.post(`${config.url}`, {
       content: `${emoji} ${message}`
     }, { headers })
 

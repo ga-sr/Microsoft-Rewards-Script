@@ -16,6 +16,7 @@ export interface Config {
     proxy: ConfigProxy;
     webhook: ConfigWebhook;
     ntfy: ConfigNtfy;
+    discord: ConfigDiscord;
 }
 
 export interface ConfigSaveFingerprint {
@@ -50,7 +51,7 @@ export interface ConfigNtfy {
 
 export interface ConfigDiscord {
     enabled: boolean;
-    webhook: string;
+    url: string;
 }
 
 export interface ConfigProxy {

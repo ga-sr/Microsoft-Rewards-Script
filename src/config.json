@@ -52,6 +52,6 @@
     },
     "discord": {
         "enabled": false,
-        "webhook": ""
+        "url": ""
     }
 }
